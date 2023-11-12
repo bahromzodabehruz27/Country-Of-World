@@ -9,13 +9,17 @@ import androidx.compose.runtime.Composable
 private val DarkColorScheme = darkColors(
     primary = Purple80,
     secondary = PurpleGrey80,
+    background = backGroundColorDark,
+    onSurface = cardNight,
+    surface = pinkText,
 )
 
 private val LightColorScheme = lightColors(
     primary = Purple40,
     secondary = PurpleGrey40,
-
-
+    background = backGroundColor,
+    onSurface = card,
+    surface = blueText,
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
     surface = Color(0xFFFFFBFE),
@@ -39,7 +43,7 @@ fun AtlasOfWorldTheme(
     }
     MaterialTheme(
         colors = colors,
-        typography = Typography,
+        typography = typography,
         content = content
     )
 }
