@@ -37,8 +37,7 @@ import tj.behruz.atlasofworld.ui.theme.typography
 
 @Preview(showBackground = true)
 @Composable
-fun CountryItem(country: Country) {
-    Log.d("TEST", country.toString())
+fun CountryItem(country: Country, itemHandler: (Country) -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -46,10 +45,8 @@ fun CountryItem(country: Country) {
             .padding(8.dp)
             .clip(RoundedCornerShape(16.dp))
             .clickable(onClick = {
-
-            }),
-        elevation = 0.dp,
-        backgroundColor = MaterialTheme.colors.onSurface
+                itemHandler.invoke(country)
+            }), elevation = 0.dp, backgroundColor = MaterialTheme.colors.onSurface
     ) {
         Row(
 
@@ -60,12 +57,9 @@ fun CountryItem(country: Country) {
         ) {
 
             AsyncImage(
-                model = ImageRequest.Builder(LocalContext.current)
-                    .data(country.flags.png)
-                    .crossfade(true)
-                    .build(),
-                modifier = Modifier
-                    .size(120.dp, 100.dp),
+                model = ImageRequest.Builder(LocalContext.current).data(country.flags.png)
+                    .crossfade(true).build(),
+                modifier = Modifier.size(120.dp, 100.dp),
                 alignment = Alignment.CenterStart,
                 contentDescription = "",
             )
