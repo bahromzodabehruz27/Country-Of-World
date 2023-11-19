@@ -1,5 +1,6 @@
 package tj.behruz.atlasofworld.ui.screens
 
+import android.net.Uri
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,6 +19,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.google.gson.Gson
+import tj.behruz.atlasofworld.domain.model.Screens
 import tj.behruz.atlasofworld.ui.CountryViewModel
 import tj.behruz.atlasofworld.ui.components.AtlasTopAppBar
 import tj.behruz.atlasofworld.ui.components.CountryItem
@@ -31,17 +34,18 @@ fun MainScreen(navController: NavController, countryViewModel: CountryViewModel)
         countryViewModel.getCountries()
     })
 
-    Box(modifier = Modifier.fillMaxSize().background(MaterialTheme.colors.background)) {
+    Box(modifier = Modifier
+        .fillMaxSize()
+        .background(MaterialTheme.colors.background)) {
         LazyColumn(modifier = Modifier.fillMaxSize()) {
             item {
                 AtlasTopAppBar()
             }
 
             items(state.coins) { country ->
-                if (country !=null){
-                    CountryItem(country = country)
+                CountryItem(country = country) {
+                    navController.navigate(Screens.DETAILS.route.plus("/${country.toString()}"))
                 }
-
 
             }
         }
