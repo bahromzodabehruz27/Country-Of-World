@@ -15,33 +15,20 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import dagger.hilt.android.AndroidEntryPoint
+import tj.behruz.atlasofworld.ui.AppNavigation
 import tj.behruz.atlasofworld.ui.components.AtlasTopAppBar
 import tj.behruz.atlasofworld.ui.components.CountryItem
 import tj.behruz.atlasofworld.ui.theme.AtlasOfWorldTheme
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             AtlasOfWorldTheme {
 
-        Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-            LazyColumn(modifier = Modifier
-                .fillMaxSize()
-                .padding(), content = {
-                item {
-                    AtlasTopAppBar()
-                }
-
-
-
-                items(7) {
-                    CountryItem()
-                }
-
-
-            })
-        }
+                AppNavigation()
 
 
                 // A surface container using the 'background' color from the theme

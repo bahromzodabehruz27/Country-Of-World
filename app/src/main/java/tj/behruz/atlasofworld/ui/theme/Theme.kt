@@ -30,7 +30,6 @@ private val LightColorScheme = lightColors(
     onSurface = Color(0xFF1C1B1F),
     */
 )
-
 @Composable
 fun AtlasOfWorldTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
