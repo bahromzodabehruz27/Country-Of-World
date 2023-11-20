@@ -20,7 +20,6 @@ fun AppNavigation() {
     NavHost(navController = navController, startDestination = Screens.MAIN.route) {
         composable(Screens.MAIN.route) {
             MainScreen(navController = navController, countryViewModel = viewModel)
-            //  CountryDetailsScreen(navController = navController)
         }
         composable(
             Screens.DETAILS.route.plus("/{country}"),

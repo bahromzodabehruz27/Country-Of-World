@@ -22,16 +22,20 @@ class CountryViewModel @Inject constructor(private val countryUseCase: CountryUs
     private val _state = mutableStateOf(MainScreenState())
     val state: State<MainScreenState> = _state
 
-    fun getCountries() {
+    init {
+        getCountries()
+    }
+
+     fun getCountries() {
 
         viewModelScope.launch {
-           countryUseCase.invoke().collect {result->
-               when(result){
-                   is Result.Error -> _state.value = MainScreenState(error = result.message)
-                   Result.Loading -> _state.value = MainScreenState(isLoading = true)
-                   is Result.Success ->_state.value = MainScreenState(coins = result.data.items)
-               }
-           }
+            countryUseCase.invoke().collect { result ->
+                when (result) {
+                    is Result.Error -> _state.value = MainScreenState(error = result.message)
+                    Result.Loading -> _state.value = MainScreenState(isLoading = true)
+                    is Result.Success -> _state.value = MainScreenState(coins = result.data.items)
+                }
+            }
         }
 
 

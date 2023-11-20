@@ -1,6 +1,5 @@
 package tj.behruz.atlasofworld.ui.components
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -23,7 +22,7 @@ fun AtlasTopAppBar() {
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
-                text = "Atlas of World",
+                text = "Country of World",
                 textAlign = TextAlign.Start,
                 style = MaterialTheme.typography.h5,
             )
@@ -31,11 +30,10 @@ fun AtlasTopAppBar() {
             Spacer(modifier = Modifier.height(8.dp))
 
             Text(
-                text = "Adopt a new friend near you!",
+                text = "Read all the country information",
                 textAlign = TextAlign.Start,
                 style = MaterialTheme.typography.subtitle1,
             )
         }
-
     }
 }
