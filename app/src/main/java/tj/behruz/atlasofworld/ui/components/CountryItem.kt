@@ -81,6 +81,7 @@ fun CountryItem(country: Country, itemHandler: (Country) -> Unit) {
                     text = country.capital?.firstOrNull() ?: "",
                     modifier = Modifier.padding(bottom = 10.dp),
                     style = typography.caption,
+                    color = MaterialTheme.colors.surface
 
                     )
                 CountryRegionTag(region = country.region)

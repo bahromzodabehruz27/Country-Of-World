@@ -25,6 +25,7 @@ fun AtlasTopAppBar() {
                 text = "Country of World",
                 textAlign = TextAlign.Start,
                 style = MaterialTheme.typography.h5,
+                color = MaterialTheme.colors.surface
             )
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -33,6 +34,7 @@ fun AtlasTopAppBar() {
                 text = "Read all the country information",
                 textAlign = TextAlign.Start,
                 style = MaterialTheme.typography.subtitle1,
+                color = MaterialTheme.colors.surface
             )
         }
     }
